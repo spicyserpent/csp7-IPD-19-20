@@ -6,9 +6,9 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'E0'
-strategy_name = 'Collude'
-strategy_description = 'Always collude.'
+team_name = 'Turtles0'
+strategy_name = 'Collude then betray upon betrayal'
+strategy_description = 'eetray only if your partner betrays in the previous round.'
     
 def move(my_history, their_history, my_score, their_score):
     '''Make my move based on the history with this player.
@@ -22,5 +22,10 @@ def move(my_history, their_history, my_score, their_score):
     '''
     
     # This player always colludes.
-    return 'c'
+    if len(my_history) < 3: #If the length of my history is less then 3 then collude.
+      return "c"
+    elif len(their_history) - 1 == "b": #Else if their previous move was a betrayal. 
+      return "b" #Return a betrayal
+    else: #If their previous move was not a betrayal then return collude.
+      return "c"
     

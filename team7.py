@@ -28,3 +28,18 @@ def move(my_history, their_history, my_score, their_score):
     
     return 'c'
 
+
+def move(my_history, their_history, my_score, their_score):
+  '''
+  Start by colluding twice then betray when the other player colludes.
+  History: Either c or b has been played.
+  Their History: Has the same length.
+  My Score is the points added from betraying or colluding.
+  Their Score is my points reflected on theirs.
+  '''
+  if len(my_history) < 3:
+    return c
+  elif len(their_history) - 1 == b:
+    return b
+  else:
+    return c
